@@ -1,0 +1,8 @@
+<div>
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+      </h1>
+  <!-- svg-checker.component.html -->
+  <input type="file" (change)="onFileSelected($event)" accept=".svg" />
+  <p *ngIf="isStrokeType !== null">Is Stroke Type: {{ isStrokeType }}</p>
+</div>
