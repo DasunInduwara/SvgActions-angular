@@ -1,37 +1,50 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
+import { MatRippleModule } from '@angular/material/core';
+import { Result } from '../../models/result';
+
 @Component({
   selector: 'app-svg-checker',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatRippleModule],
   templateUrl: './svg-checker.component.html',
-  styleUrl: './svg-checker.component.scss'
+  styleUrl: './svg-checker.component.scss',
 })
 export class SvgCheckerComponent {
   isStrokeType: boolean | null = null;
+  public resultList: Result[] = [];
+  // public resultList: number[] = [1, 2, 3, 4, 5];
 
-  onFileSelected(event: Event): void {
+  public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-      this.readFile(file);
+      Array.from(input.files).forEach((file) => {
+        console.log(file);
+
+        this.readFile(file);
+      });
     }
   }
 
-  readFile(file: File): void {
+  private readFile(file: File): void {
     const reader = new FileReader();
     reader.onload = (e: ProgressEvent<FileReader>) => {
       const svgString = e.target?.result as string;
       const svg = new DOMParser().parseFromString(svgString, 'image/svg+xml');
-      this.isStrokeType = this.checkIsStrokeType(svg);
+
+      let resultItem: Result = {
+        file: file,
+        result: this.checkIsStrokeType(svg),
+      };
+      this.resultList.push(resultItem);
     };
+
     reader.readAsText(file);
   }
 
-  checkIsStrokeType(svg: Document): boolean {
+  private checkIsStrokeType(svg: Document): boolean {
     const elements = svg.querySelectorAll('*[stroke]');
     return elements.length > 0;
   }
-
 }
