@@ -1,18 +1,5 @@
-<div class= "flex flex-col items-center justify-center h-full">
-    <!-- <app-header></app-header> -->
-    <!-- 
-    <div class="text-center text-base text-black font-light">
-        Check if your SVG uses stroke or fill with a simple upload...
-    </div> -->
-
-    <!-- button -->
-    <!-- <div mat-ripple
-        class="cursor-pointer items-center text-base text-white bg-black text-center rounded-full py-1.5 px-4 mt-4">
-        Upload Files
-    </div> -->
-
-    <div
-        class="w-1/3 shadow-md rounded-xl border border-gray-200 flex flex-col items-start justify-start p-6">
+<div class="flex flex-col items-center justify-center h-full">
+    <div class="w-1/3 shadow-md rounded-xl border border-gray-200 flex flex-col items-start justify-start p-6">
 
         <div class="text-lg font-light text-black mt-2">Upload SVG</div>
         <div class="text-sm font-light text-black mt-1">Accepted file format: .svg. Maximum file size: 5MB.</div>
@@ -22,18 +9,24 @@
             <mat-icon class="icon-size text-gray-300">cloud_upload</mat-icon>
             <div class="text-sm font-thin text-black">Drop & Drop your SVG files here</div>
             <!-- button -->
+            <input
+            hidden
+            type="file"
+            (change)="onFileSelected($event)"
+            accept=".svg"
+            #fileSelector
+            multiple="true"
+          />
             <div mat-ripple
-                class="cursor-pointer items-center text-base text-white font-light text-center bg-black  rounded-lg py-1 px-4 mt-4">
+                class="cursor-pointer items-center text-base text-white font-light text-center bg-black  rounded-lg py-1 px-4 mt-4" (click)="fileSelector.click()">
                 Browse Files
             </div>
         </div>
 
-        <div mat-ripple
+        <div mat-ripple (click)="onSubmit()"
             class="cursor-pointer items-center text-base text-white font-light text-center bg-black w-full rounded-lg py-2 px-4 mt-6">
             Submit
         </div>
 
     </div>
-
-
 </div>

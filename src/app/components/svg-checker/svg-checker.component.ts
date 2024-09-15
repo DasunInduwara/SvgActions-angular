@@ -14,7 +14,6 @@ import { Result } from '../../models/result';
 export class SvgCheckerComponent {
   isStrokeType: boolean | null = null;
   public resultList: Result[] = [];
-  // public resultList: number[] = [1, 2, 3, 4, 5];
 
   public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
