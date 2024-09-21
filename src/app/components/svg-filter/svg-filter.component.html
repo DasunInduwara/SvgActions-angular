@@ -9,16 +9,10 @@
             <mat-icon class="icon-size text-gray-300">cloud_upload</mat-icon>
             <div class="text-sm font-thin text-black">Drop & Drop your SVG files here</div>
             <!-- button -->
-            <input
-            hidden
-            type="file"
-            (change)="onFileSelected($event)"
-            accept=".svg"
-            #fileSelector
-            multiple="true"
-          />
+            <input hidden type="file" (change)="onFileSelected($event)" accept=".svg" #fileSelector multiple="true" />
             <div mat-ripple
-                class="cursor-pointer items-center text-base text-white font-light text-center bg-black  rounded-lg py-1 px-4 mt-4" (click)="fileSelector.click()">
+                class="cursor-pointer items-center text-base text-white font-light text-center bg-black  rounded-lg py-1 px-4 mt-4"
+                (click)="fileSelector.click()">
                 Browse Files
             </div>
         </div>

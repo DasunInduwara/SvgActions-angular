@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { MatRippleModule } from '@angular/material/core';
-import { Result } from '../../models/result';
+import { SvgFileModel } from '../../models/result';
 
 @Component({
   selector: 'app-svg-checker',
@@ -13,7 +13,7 @@ import { Result } from '../../models/result';
 })
 export class SvgCheckerComponent {
   isStrokeType: boolean | null = null;
-  public resultList: Result[] = [];
+  public resultList: SvgFileModel[] = [];
 
   public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -32,7 +32,7 @@ export class SvgCheckerComponent {
       const svgString = e.target?.result as string;
       const svg = new DOMParser().parseFromString(svgString, 'image/svg+xml');
 
-      let resultItem: Result = {
+      let resultItem: SvgFileModel = {
         file: file,
         result: this.checkIsStrokeType(svg),
       };

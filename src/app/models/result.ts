@@ -1,4 +1,4 @@
-export interface Result {
-    file: File,
-    result : boolean
+export interface SvgFileModel {
+  file: File;
+  result: boolean;
 }
