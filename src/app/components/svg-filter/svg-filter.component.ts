@@ -5,6 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { SvgFileModel } from '../../models/result';
 import { SvgService } from '../../services/svg.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-svg-filter',
@@ -14,7 +15,8 @@ import { SvgService } from '../../services/svg.service';
   styleUrl: './svg-filter.component.scss',
 })
 export class SvgFilterComponent {
-  private svgService = inject(SvgService);
+  private readonly svgService = inject(SvgService);
+  private readonly routerService = inject(Router);
 
   public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -25,6 +27,6 @@ export class SvgFilterComponent {
     }
   }
   public onSubmit(): void {
-    console.log('Clicked'); 
+    this.routerService.navigate(['result']);
   }
 }

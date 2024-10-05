@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SvgFileModel } from '../models/result';
+import { SvgFileModel, SvgTypes } from '../models/result';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +8,10 @@ export class SvgService {
   private svgFileList: SvgFileModel[] = [];
 
   constructor() {}
+
+  public get getSvgFileList(): SvgFileModel[] {
+    return this.svgFileList;
+  }
 
   public setSvgItem(file: File): void {
     const reader = new FileReader();
@@ -24,8 +28,9 @@ export class SvgService {
     reader.readAsText(file);
   }
 
-  private checkIsStrokeType(svg: Document): boolean {
+  private checkIsStrokeType(svg: Document): string {
     const elements = svg.querySelectorAll('*[stroke]');
-    return elements.length > 0;
+    if (elements.length > 0) return SvgTypes.stroke;
+    return SvgTypes.fill;
   }
 }

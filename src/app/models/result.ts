@@ -1,4 +1,9 @@
 export interface SvgFileModel {
   file: File;
-  result: boolean;
+  result: string;
+}
+
+export enum SvgTypes {
+  stroke = 'stroke',
+  fill = 'fill'
 }
