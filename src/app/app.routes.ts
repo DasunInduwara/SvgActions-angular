@@ -1,11 +1,16 @@
 import { Routes } from '@angular/router';
-import { SvgFilterComponent } from './components/svg-filter/svg-filter.component';
+import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { SvgResultComponent } from './components/svg-result/svg-result.component';
+import { PreviewSvgComponent } from './components/preview-svg/preview-svg.component';
 
 export const routes: Routes = [
   {
+    path: 'preview',
+    component: PreviewSvgComponent,
+  },
+  {
     path: 'upload',
-    component: SvgFilterComponent,
+    component: FileUploaderComponent,
   },
   {
     path: 'result',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { SvgFilterComponent } from './components/svg-filter/svg-filter.component';
+import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { SvgResultComponent } from './components/svg-result/svg-result.component';
 
 @Component({
@@ -10,7 +10,7 @@ import { SvgResultComponent } from './components/svg-result/svg-result.component
   imports: [
     RouterOutlet,
     HeaderComponent,
-    SvgFilterComponent,
+    FileUploaderComponent,
     SvgResultComponent,
   ],
   templateUrl: './app.component.html',
