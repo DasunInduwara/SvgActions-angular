@@ -99,7 +99,14 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/SvgActions-angular/",
+            "name": "dasun",
+            "email": "dasuniduwara2@gmail.com",
+            "repo": "https://github.com/DasunInduwara/SvgActions-angular.git",
+            "branch": "gh-pages"
+          }
         }
       }
     }
