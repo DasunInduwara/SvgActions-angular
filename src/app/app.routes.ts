@@ -18,17 +18,17 @@ export const routes: Routes = [
   },
   {
     path: '*',
-    redirectTo: 'upload',
+    redirectTo: 'preview',
     pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: 'upload',
+    redirectTo: 'preview',
     pathMatch: 'full',
   },
   {
     path: '',
-    redirectTo: 'upload',
+    redirectTo: 'preview',
     pathMatch: 'full',
   },
 ];
